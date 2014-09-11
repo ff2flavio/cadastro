@@ -4,7 +4,9 @@ angular.module ('myApp.serverRepo')
 .factory ('serverRepo', ['$http', function ($http) { 
 
 
- var corsairSeverListUrl = "https://s3-eu-west-1.amazonaws.com/spacecorsair/servers/serverListDebug.json";
+ var corsairS3ListUrl = "https://s3-eu-west-1.amazonaws.com/spacecorsair/servers/serverListDebug.json";
+
+ var corsairLocaleListUrl = "./components/repositories/serverListLocale.json";
  var self = this;
  var serverList;
 
@@ -33,7 +35,7 @@ angular.module ('myApp.serverRepo')
 
  function enhanceServerObject(servers){
   
-    _.each(servers, function (server){
+    _.each(servers.servers, function (server){
       _.extend(server, serverEnhancedProto);      
     });
 
@@ -44,11 +46,13 @@ angular.module ('myApp.serverRepo')
  return { 
    getServers: function (callback) {   
      if (self.serverList == null){
-      $http.get (corsairSeverListUrl).success (function (serverList) {                
-        self.serverList = enhanceServerObject(serverList.servers);                
-        callback (serverList.servers, serverList.message); 
+      console.log("using S3 http");
+      $http.get (corsairLocaleListUrl).success (function (serverList) {                
+        self.serverList = enhanceServerObject(serverList);                
+        
+        callback (self.serverList.servers, self.serverList.message); 
       });
-    } else {      
+    } else {            
       callback (self.serverList.servers, self.serverList.message); 
 
     }
