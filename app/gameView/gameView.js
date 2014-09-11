@@ -11,8 +11,9 @@ angular.module('myApp.gameView', ['ngRoute'])
 
 .controller('gameCtrl', ['$scope','$routeParams','serverRepo',function($scope, $routeParams, serverRepo) {
 
-	serverRepo.getServers(function (servers){
-		$scope.server = servers[$routeParams.serverId];
+	serverRepo.getServers(function (servers){		
+		$scope.server = servers[$routeParams.serverId];		
+		
 	})
 	
 

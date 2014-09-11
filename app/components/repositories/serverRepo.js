@@ -8,11 +8,31 @@ angular.module ('myApp.serverRepo')
  var self = this;
  var serverList;
 
+
+
+
+ function enhanceServerObject(servers){
+  
+    _.each(servers, function (server){
+      server.gameInfoUrl = "http://"+server.adress+":"+server.http_port+"/gameInfo";
+      server.gameInfo = function (callback){       
+         
+
+      }
+    });
+
+    return servers;
+
+ }
+
  return { 
    getServers: function (callback) {   
      if (self.serverList == null){
       $http.get (corsairSeverListUrl).success (function (serverList) {                
-        self.serverList = serverList;        
+        self.serverList = enhanceServerObject(serverList.servers);        
+        debugger;
+
+
         callback (serverList.servers, serverList.message); 
       });
     } else {      
