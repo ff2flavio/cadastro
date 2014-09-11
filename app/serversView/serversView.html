@@ -1,0 +1,12 @@
+<p> server view </p>
+{{"the message is " + message}}
+
+<p> Number of servers : {{servers.length}} </p>
+
+<ul>
+
+<li ng-repeat = "server in servers">
+	<a href= "#/gameView/{{$index}}">{{server.name}}</a>
+</li>
+
+</ul>
