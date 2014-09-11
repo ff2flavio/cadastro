@@ -9,16 +9,32 @@ angular.module ('myApp.serverRepo')
  var serverList;
 
 
+ var serverEnhancedProto = {
+
+
+
+    gameInfoUrl : function(){
+      return "http://"+this.adress+":"+this.http_port+"/gameInfo"
+    },
+    gameInfo : function(callback, error){
+      $http.get(this.gameInfoUrl())
+          .success(function (gameInfo){
+            callback(gameInfo);
+
+          })
+          .error(function(data, status, headers, config) {            
+            if (error){
+              error(data, status, headers, config);
+            }
+      });
+    }
+ };
 
 
  function enhanceServerObject(servers){
   
     _.each(servers, function (server){
-      server.gameInfoUrl = "http://"+server.adress+":"+server.http_port+"/gameInfo";
-      server.gameInfo = function (callback){       
-         
-
-      }
+      _.extend(server, serverEnhancedProto);      
     });
 
     return servers;
@@ -29,10 +45,7 @@ angular.module ('myApp.serverRepo')
    getServers: function (callback) {   
      if (self.serverList == null){
       $http.get (corsairSeverListUrl).success (function (serverList) {                
-        self.serverList = enhanceServerObject(serverList.servers);        
-        debugger;
-
-
+        self.serverList = enhanceServerObject(serverList.servers);                
         callback (serverList.servers, serverList.message); 
       });
     } else {      

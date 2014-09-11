@@ -13,9 +13,18 @@ angular.module('myApp.gameView', ['ngRoute'])
 
 	serverRepo.getServers(function (servers){		
 		$scope.server = servers[$routeParams.serverId];		
+		$scope.server.gameInfo( function(gameInfo){
+				
+				$scope.gameInfo = gameInfo;	
+
+				}, function(error){
+					console.log("Error conencting to server "+$scope.server.name+". " + error);
+					
+		});
+
 		
 	})
-	
+
 
 
 
