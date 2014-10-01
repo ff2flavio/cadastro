@@ -1,5 +1,148 @@
+<div class = "col-lg-8">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>    
+</div>
 
 
-<p> Detail for server {{server.name}} </p>
+<p class = "col-lg-4"> Detail for server {{server.name}} </p>
 
-<p> Number of players :  {{gameInfo.curNumberOfPlayers}}  / {{gameInfo.maxNumberOfPlayers}}</p>
+
+
+<p class = "col-lg-4"> Number of players :  {{gameInfo.curNumberOfPlayers}}  / {{gameInfo.maxNumberOfPlayers}}</p>
+
+
+<div class = "row">
+
+	<div class = "col-xs-offset-6">{{gameInfo.teams[0].score}} - {{gameInfo.teams[1].score}}</div>	
+
+</div>
+
+<div class = "row">
+
+	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-xs-offset-2" ng-show = "gameInfo.teams[0].players.length > 0" >
+	<div class = "teamTitle"> Team {{gameInfo.teams[0].team}} </div>
+	
+	
+	<div class="playerCard" ng-repeat="player in gameInfo.teams[0].players">
+
+		<table border = 0>
+
+			<tr >
+				<td width= "10%" rowspan = 2>
+					<img src = "imgs/player_ship_1.png" />
+					<div class = "level">
+
+					L1
+					</div>
+				</td>
+				<td  width= "65%"  colspan = 2>
+					
+			
+				<div  class = "cardCenter playername">	{{player.name}}</div>
+				</td>
+
+				<td>
+					<div class = "cardCenter">
+						<div class="victim">{{player.victims}}</div>
+					K 
+				</div>
+				</td>
+
+			</tr>
+			
+			<tr>
+				<td colspan = 2>
+
+
+
+					<progressbar  class="active" max="100" max="player.lifeInPourc" value="player.lifeInPourc" type="danger"><span>Life {{player.lifeInPourc}}</span></progressbar>
+					<progressbar class="active" max="100" value="player.shieldInPourc" ><span> {{player.shieldInPourc}}</span></progressbar>
+                    
+
+				</td>
+				<td>
+					<div class = "cardCenter">
+					{{player.ping}} ms
+				</div>
+				</td>
+				
+
+				
+			</tr>
+
+
+		</table>
+
+		
+
+		
+	
+		
+
+	 </div>
+	
+	</div>
+
+
+
+
+	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-lg-4" ng-show = "gameInfo.teams[1].players.length > 0" >
+	<div class = "teamTitle"> Team {{gameInfo.teams[1].team}} </div>	
+	
+	<div class="playerCard" ng-repeat="player in gameInfo.teams[1].players">
+	
+		<table border = 0>
+
+			<tr >
+				<td width= "10%" rowspan = 2>
+					<img src = "imgs/player_ship_1.png" />
+					<div class = "level">
+
+					L1
+					</div>
+				</td>
+				<td  width= "65%"  colspan = 2>
+					
+			
+				<div  class = "cardCenter playername">	{{player.name}}</div>
+				</td>
+
+				<td>
+					<div class = "cardCenter">
+						<div class="victim">{{player.victims}}</div>
+					K 
+				</div>
+				</td>
+
+			</tr>
+			
+			<tr>
+				<td colspan = 2>
+
+
+
+					<progressbar  class="active" max="100" max="player.lifeInPourc" value="player.lifeInPourc" type="danger"><span>Life {{player.lifeInPourc}}</span></progressbar>
+					<progressbar class="active" max="100" value="player.shieldInPourc" ><span>Shield {{player.shieldInPourc}}</span></progressbar>
+                    
+
+				</td>
+				<td>
+					<div class = "cardCenter">
+					{{player.ping}} ms
+				</div>
+				</td>
+				
+
+				
+			</tr>
+
+
+		</table>
+
+	
+	</div>
+
+</div>
+
+
+
+

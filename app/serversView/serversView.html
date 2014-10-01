@@ -1,7 +1,6 @@
-<p> server view </p>
-{{"the message is " + message}}
-
-<p> Number of servers : {{servers.length}} </p>
+<div>
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>    
+</div>
 
 <ul>
 

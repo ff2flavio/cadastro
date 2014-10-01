@@ -1,0 +1,27 @@
+{
+	
+	"message" : "debug",
+	"servers" : [
+
+		{			
+			"adress" : "localhost",
+			"http_port" : "8080",
+			"name" : "localhost server",
+			"region" : "WESTERN_EUROPE"
+		},
+		{			
+			"adress" : "10.0.3.2",
+			"http_port" : "8080",
+			"name" : "Genymotion",
+			"region" : "WESTERN_EUROPE"
+		},		
+		{			
+			"adress" : "192.168.0.10",
+			"http_port" : "8080",
+			"name" : "Mac wifi",
+			"region" : "WESTERN_EUROPE"
+		}
+	]
+
+
+}

@@ -1,5 +1,10 @@
 /* app css stylesheet */
 
+
+body{
+  background-color: #91a4d1;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -28,3 +33,154 @@
   content: "";
   padding: 0;
 }
+
+.baseline{
+  bottom: 0;
+  position: absolute;
+  margin: 3px;
+}
+
+#mainContainer{
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.teamTitle{
+  text-align: center;
+}
+
+.level {
+  
+  height: 100%;
+  width: 100%;
+  text-align: center;  
+  margin: 2px;
+  
+}
+
+.playerCard {
+  border: 3px solid black;
+  margin: 5px;
+  
+
+}
+
+.verticalCut {
+  
+  top : 0;
+  margin-left: 20px;  
+  height: 50%;
+  
+  border: 2px solid red;
+}
+
+
+.playerCard table {
+  border: 0 px solid gray; 
+  width: 100%;  
+  background: #4A4A4A;
+}
+
+.playerCard td {
+  border: 1 px solid gray; 
+  color: #e3c51d;
+
+  
+}
+
+.playerCard img {
+  
+  left: 0;
+
+  
+  
+  width: 40px;  
+  height: 40px;  
+  
+}
+
+.cardCenter {
+
+  margin: 2px;
+  text-align: center;
+  width: 100%;
+}
+
+.playername{
+ 
+  width: 100%;
+  font-size: 14pt;
+  min-width: 70%;
+  
+}
+
+.playerCard .progress {
+  width : 100%;
+  height: 50%;
+  margin: 0px;
+  background-color: #3b3b3b;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-image: none;
+
+
+}
+
+
+
+
+
+.victim{
+  display: inline-block;
+  font-size: 18px;
+}
+
+
+
+.lifeBar {
+
+    
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    
+    
+    font-size: 8pt;
+    text-align: center;
+    
+    
+    
+    background: -webkit-linear-gradient(#2d2d2d,#444);
+    background:    -moz-linear-gradient(#2d2d2d,#444);
+    background:      -o-linear-gradient(#2d2d2d,#444);
+    background:         linear-gradient(#2d2d2d,#444);
+    
+    
+    
+  
+}
+
+.shieldBar{
+
+ -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    
+    
+    font-size: 8pt;
+    text-align: center;
+    vertical-align: center;
+    
+    
+    background: -webkit-linear-gradient(#2d2d2d,#444);
+    background:    -moz-linear-gradient(#2d2d2d,#444);
+    background:      -o-linear-gradient(#2d2d2d,#444);
+    background:         linear-gradient(#2d2d2d,#444);
+    
+
+}
+
+
+
+
