@@ -1,8 +1,22 @@
 /* app css stylesheet */
 
+@font-face { font-family: spaceranger; src: url('fonts/spaceranger.ttf'); } 
+@font-face { font-family: spaceAge; src: url('fonts/space age.ttf'); } 
 
 body{
-  background-color: #91a4d1;
+  background-color: black;
+}
+
+.clear {
+  clear: both;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
 }
 
 .menu {
@@ -34,10 +48,15 @@ body{
   padding: 0;
 }
 
-.baseline{
-  bottom: 0;
+.version{
+  top: 0;
+  right: 0;
   position: absolute;
   margin: 3px;
+  font-family: spaceAge;
+  color: white;
+  font-size: 8pt;
+  letter-spacing: 1px;
 }
 
 #mainContainer{
@@ -48,9 +67,6 @@ body{
   left:0;
 }
 
-.teamTitle{
-  text-align: center;
-}
 
 .level {
   
@@ -63,8 +79,7 @@ body{
 
 .playerCard {
   border: 3px solid black;
-  margin: 5px;
-  
+  margin: 5px;     
 
 }
 
@@ -88,15 +103,27 @@ body{
   border: 1 px solid gray; 
   color: #e3c51d;
 
-  
+}
+
+.score {
+  display:  inline;
+  font-family: spaceranger;
+  font-size: 40pt;
+  color: white;
+}
+
+
+
+.teamTitle {
+  display:  inline;  
+  font-family: spaceranger;
+  color : white;
+  font-size: 40pt;
 }
 
 .playerCard img {
   
-  left: 0;
-
-  
-  
+  left: 0;  
   width: 40px;  
   height: 40px;  
   
@@ -112,23 +139,26 @@ body{
 .playername{
  
   width: 100%;
-  font-size: 14pt;
+  font-size: 16pt;
   min-width: 70%;
+  font-family: spaceranger;
+  letter-spacing: 2px;
   
 }
 
 .playerCard .progress {
   width : 100%;
   height: 50%;
-  margin: 0px;
+  
   background-color: #3b3b3b;
   -webkit-box-shadow: none;
   box-shadow: none;
   background-image: none;
+  margin-bottom: 3px;
+
 
 
 }
-
 
 
 
@@ -181,6 +211,77 @@ body{
 
 }
 
+
+.noplayer{
+  
+  font-size: 10pt;    
+  font-family: spaceAge;  
+  color:#FF4242; 
+  text-align: center;
+  width: 100%;
+  
+  
+  margin-top: 25px;
+}
+
+
+
+
+@-webkit-keyframes STAR-MOVE {
+  from {
+    left: 0;
+    top: 0;
+  }
+  to { 
+    left: -10000px;
+    top: -2000px;
+  }
+}
+
+#background {
+  background: black url(imgs/background.png) repeat 5% 5%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 100;
+  
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 200s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#midground {
+  background: url(imgs/midground.png) repeat 20% 20%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 150s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#foreground {
+  background: url(imgs/foreground.png) repeat 35% 35%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 300;
+  
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 100s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+
+#mainContainer{
+  z-index: 300;
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+}
 
 
 

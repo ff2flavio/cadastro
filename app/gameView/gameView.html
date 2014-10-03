@@ -7,23 +7,37 @@
 
 
 
-<p class = "col-lg-4"> Number of players :  {{gameInfo.curNumberOfPlayers}}  / {{gameInfo.maxNumberOfPlayers}}</p>
+
+
 
 
 <div class = "row">
 
-	<div class = "col-xs-offset-6">{{gameInfo.teams[0].score}} - {{gameInfo.teams[1].score}}</div>	
-
+	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-xs-offset-2">
+		<div class = "score floatRight" >{{gameInfo.teams[0].score}}</div>
+		<div class = "teamTitle floatLeft">Team {{gameInfo.teams[0].team}} </div>	
+	</div>
+	
+	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-lg-4" >
+		<div class = "score floatFeft" >{{gameInfo.teams[1].score}}</div>
+		<div class = "teamTitle floatRight">  Team {{gameInfo.teams[1].team}} </div>	
+	</div>
 </div>
 
-<div class = "row">
+<div class = "row">	
 
-	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-xs-offset-2" ng-show = "gameInfo.teams[0].players.length > 0" >
-	<div class = "teamTitle"> Team {{gameInfo.teams[0].team}} </div>
-	
-	
-	<div class="playerCard" ng-repeat="player in gameInfo.teams[0].players">
 
+	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-xs-offset-2">
+
+
+		<div class = "noplayer" ng-show="gameInfo.teams[0].players.length == 0">
+		
+			No players in this team
+		
+		</div>
+
+
+	<div class="playerCard" ng-repeat="player in gameInfo.teams[0].players"  ng-show = "gameInfo.teams[0].players.length > 0" >
 		<table border = 0>
 
 			<tr >
@@ -42,8 +56,8 @@
 
 				<td>
 					<div class = "cardCenter">
-						<div class="victim">{{player.victims}}</div>
-					K 
+						<div class="victim">{{player.victims}} <i  title="number of victims" class="glyphicon glyphicon-screenshot"/></div>
+					 
 				</div>
 				</td>
 
@@ -54,8 +68,8 @@
 
 
 
-					<progressbar  class="active" max="100" max="player.lifeInPourc" value="player.lifeInPourc" type="danger"><span>Life {{player.lifeInPourc}}</span></progressbar>
-					<progressbar class="active" max="100" value="player.shieldInPourc" ><span> {{player.shieldInPourc}}</span></progressbar>
+					<progressbar title="Life"  class="active" max="100" max="player.lifeInPourc" value="player.lifeInPourc" type="danger"><span>{{player.lifeInPourc}}</span></progressbar>
+					<progressbar title="Shield" class="active" max="100" value="player.shieldInPourc" ><span>{{player.shieldInPourc}}</span></progressbar>
                     
 
 				</td>
@@ -71,12 +85,6 @@
 
 
 		</table>
-
-		
-
-		
-	
-		
 
 	 </div>
 	
@@ -85,11 +93,16 @@
 
 
 
-	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-lg-4" ng-show = "gameInfo.teams[1].players.length > 0" >
-	<div class = "teamTitle"> Team {{gameInfo.teams[1].team}} </div>	
 	
-	<div class="playerCard" ng-repeat="player in gameInfo.teams[1].players">
-	
+	<div class = "col-xs-4 col-sm-4 col-md-4 col-lg-4  col-lg-4" >
+
+		<div class = "noplayer" ng-show="gameInfo.teams[1].players.length == 0">
+		
+			No players in this team
+		
+		</div>
+		<div class="playerCard" ng-repeat="player in gameInfo.teams[1].players"  ng-show = "gameInfo.teams[1].players.length > 0">
+
 		<table border = 0>
 
 			<tr >
@@ -108,8 +121,8 @@
 
 				<td>
 					<div class = "cardCenter">
-						<div class="victim">{{player.victims}}</div>
-					K 
+						<div class="victim">{{player.victims}} <i  title="number of victims" class="glyphicon glyphicon-screenshot"/></div>
+					 
 				</div>
 				</td>
 
@@ -120,8 +133,8 @@
 
 
 
-					<progressbar  class="active" max="100" max="player.lifeInPourc" value="player.lifeInPourc" type="danger"><span>Life {{player.lifeInPourc}}</span></progressbar>
-					<progressbar class="active" max="100" value="player.shieldInPourc" ><span>Shield {{player.shieldInPourc}}</span></progressbar>
+					<progressbar title="Life"  class="active" max="100" max="player.lifeInPourc" value="player.lifeInPourc" type="danger"><span>{{player.lifeInPourc}}</span></progressbar>
+					<progressbar title="Shield" class="active" max="100" value="player.shieldInPourc" ><span>{{player.shieldInPourc}}</span></progressbar>
                     
 
 				</td>
@@ -138,8 +151,14 @@
 
 		</table>
 
+	 </div>
 	
 	</div>
+
+
+
+	
+
 
 </div>
 

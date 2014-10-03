@@ -3,7 +3,7 @@ angular.module('myApp.serverRepo')
     function($http) {
 
 
-      var corsairS3ListUrl = "https://s3-eu-west-1.amazonaws.com/spacecorsair/servers/serverListDebug.json";
+      var corsairS3ListUrl = "https://s3-eu-west-1.amazonaws.com/spacecorsair/servers/activeServerList.json";
 
       var corsairLocaleListUrl = "./components/repositories/serverListLocale.json";
       var self = this;
@@ -47,7 +47,7 @@ angular.module('myApp.serverRepo')
           if (self.serverList == null) {
 
 
-            $http.get(corsairLocaleListUrl).success(function(serverList) {
+            $http.get(corsairS3ListUrl).success(function(serverList) {
 
               self.serverList = serverList.servers.map(function(serverRawData) {
                 return new Server(serverRawData);
